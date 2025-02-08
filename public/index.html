@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/qs@6.10.2/dist/qs.js"></script>
+</head>
+<body>
+    hello nest
+
+    <input id="fileInput" type="file" multiple/>
+    <script>
+        /*
+        * get user -- url param
+        */
+        // async function getUser() {
+        //     const res = await axios.get('/person/456');
+        //     console.log(res);
+        // }
+        // getUser();
+
+        /*
+        * find name -- query
+        */
+        // async function findName() {
+        //     const res = await axios.get('/person/find', {
+        //         params: {
+        //             name: 'John',
+        //             age: 20
+        //         }
+        //     });
+        //     console.log(res);
+        // }
+        // findName();
+
+        /*
+        * person -- form urlencoded
+        */
+        // async function formUrlEncoded() {
+        //     const res = await axios.post('/person', Qs.stringify({
+        //         name: 'John',
+        //         age: 21
+        //     }), {
+        //         Headers: {
+        //             'Content-Type': 'application/x-www-form-urlencoded'
+        //         }
+        //     });
+        //     console.log(res);
+        // }
+        // formUrlEncoded();
+
+        /*
+        * person -- json
+        */
+        // async function json() {
+        //     const res = await axios.post('/person', {
+        //         name: 'John',
+        //         age: 22
+        //     });
+        //     console.log(res);
+        // }
+        // json();
+
+        /*
+        * person -- form-data
+        */
+       const  fileInput = document.querySelector('#fileInput')
+        async function formData(params) {
+            const data = new FormData()
+            data.set('name', 'John')
+            data.set('age', 23)
+            data.set('file', fileInput.files[0])
+            const res = await axios.post('/person/file', data)
+            console.log(res)
+        }
+        fileInput.onchange = formData
+    </script>
+</body>
+</html>
