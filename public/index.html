@@ -54,14 +54,14 @@
         /*
         * person -- json
         */
-        // async function json() {
-        //     const res = await axios.post('/person', {
-        //         name: 'John',
-        //         age: 22
-        //     });
-        //     console.log(res);
-        // }
-        // json();
+        async function json() {
+            const res = await axios.post('/person', {
+                name: 'John',
+                age: 22
+            });
+            console.log(res);
+        }
+        json();
 
         /*
         * person -- form-data
